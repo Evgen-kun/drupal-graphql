@@ -1,0 +1,51 @@
+type Mutation
+
+scalar Violation
+
+
+type Article {
+  id: Int!
+  title: String!
+  author: String
+}
+
+type Page {
+  id: Int!
+  title: String
+}
+
+type Quote {
+  id: Int!
+  title: String
+}
+
+
+type ArticleResponse implements Response {
+  errors: [Violation]
+  article: Article
+}
+
+type ArticleConnection {
+  total: Int!
+  items: [Article!]
+}
+
+type PageResponse implements Response {
+  errors: [Violation]
+  page: Page
+}
+
+type QuoteResponse implements Response {
+  errors: [Violation]
+  quote: Quote
+}
+
+
+interface Response {
+  errors: [Violation]
+}
+
+input ArticleInput {
+  title: String!
+  description: String
+}

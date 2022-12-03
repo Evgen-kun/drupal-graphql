@@ -1,0 +1,14 @@
+
+extend type Query {
+  page(id: Int!): Page
+  quote(id: Int!): Quote
+  article(id: Int!): Article
+  articles(
+    offset: Int = 0
+    limit: Int = 10
+  ): ArticleConnection!
+}
+
+extend type Mutation {
+  createArticle(data: ArticleInput): ArticleResponse
+}

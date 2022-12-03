@@ -1,0 +1,29 @@
+type Mutation
+
+scalar Violation
+
+type Task {
+  id: Int!
+  title: String!
+  body: String
+  author: String
+}
+
+type TaskConnection {
+  total: Int!
+  items: [Task!]
+}
+
+type TaskResponse implements Response {
+  errors: [Violation]
+  task: Task
+}
+
+interface Response {
+  errors: [Violation]
+}
+
+input TaskInput {
+  title: String!
+  description: String
+}
